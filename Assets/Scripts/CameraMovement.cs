@@ -12,7 +12,7 @@ public class CameraMovement : Singleton<CameraMovement> {
     }
 
     void Update() {
-        this.transform.position = Vector3.Lerp(transform.position, player.transform.position, 0.1f);
+        this.transform.position = Vector3.Lerp(transform.position, player.transform.position, 0.3f);
         var vector3 = transform.position;
         vector3.z = -10;
         transform.position = vector3;
