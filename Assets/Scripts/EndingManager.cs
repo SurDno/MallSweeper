@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class EndingManager : MonoBehaviour {
     public List<Image> endingImages;
-
+    
     private void Start() => ShowEnding();
     
     public void ShowEnding() {

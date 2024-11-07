@@ -4,4 +4,5 @@ using UnityEngine;
 public class Item : ScriptableObject {
     public Sprite Image;
     public string Name;
+    public string abilityDescription;
 }
