@@ -10,6 +10,7 @@ public class PlayerControl : Singleton<PlayerControl> {
     private Vector2 savedDirection;
 
     private void Start() {
+        animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 0;
     }
@@ -20,13 +21,10 @@ public class PlayerControl : Singleton<PlayerControl> {
         if(currentDirection.x != 0 || currentDirection.y != 0)
             savedDirection = new Vector2(currentDirection.x, currentDirection.y);
 		
-        //animator.SetFloat("Horizontal", savedDirection.x);
-        //animator.SetFloat("Vertical", savedDirection.y);
-
-        //if(SurgeryUI.Instance.IsPatientInfoOpen())
-        //    movementVector = Vector2.zero;
+        animator.SetFloat("Horizontal", savedDirection.x);
+        animator.SetFloat("Vertical", savedDirection.y);
 		
-        //animator.speed = (movementVector == Vector2.zero) ? 0 : 1;
+        animator.speed = (movementVector == Vector2.zero) ? 0 : 1;
 		
         rb.velocity = movementVector * 5;
     }
