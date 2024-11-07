@@ -13,7 +13,7 @@ public class FlashlightRotation : MonoBehaviour {
     
     private void Update() {
         Vector3 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-        Vector3 direction = mousePos - transform.position;
+        Vector3 direction = mousePos - transform.parent.position;
         direction.z = 0;
         
         // Calculate rotation
