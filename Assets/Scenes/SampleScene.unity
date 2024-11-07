@@ -2145,6 +2145,7 @@ GameObject:
   - component: {fileID: 756856852}
   - component: {fileID: 756856854}
   - component: {fileID: 756856853}
+  - component: {fileID: 756856855}
   m_Layer: 5
   m_Name: GameObject (4)
   m_TagString: Untagged
@@ -2209,6 +2210,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 756856851}
   m_CullTransparentMesh: 1
+--- !u!114 &756856855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 756856851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e92d54d4b5c0a6a52951c500286271a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hotbarIndex: 4
 --- !u!1 &777835075
 GameObject:
   m_ObjectHideFlags: 0
@@ -3043,6 +3057,7 @@ GameObject:
   - component: {fileID: 1063597937}
   - component: {fileID: 1063597939}
   - component: {fileID: 1063597938}
+  - component: {fileID: 1063597940}
   m_Layer: 5
   m_Name: GameObject (1)
   m_TagString: Untagged
@@ -3107,6 +3122,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1063597936}
   m_CullTransparentMesh: 1
+--- !u!114 &1063597940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1063597936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e92d54d4b5c0a6a52951c500286271a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hotbarIndex: 1
 --- !u!1001 &1086289172
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3511,6 +3539,7 @@ GameObject:
   - component: {fileID: 1152822967}
   - component: {fileID: 1152822969}
   - component: {fileID: 1152822968}
+  - component: {fileID: 1152822970}
   m_Layer: 5
   m_Name: GameObject (5)
   m_TagString: Untagged
@@ -3575,6 +3604,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1152822966}
   m_CullTransparentMesh: 1
+--- !u!114 &1152822970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1152822966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e92d54d4b5c0a6a52951c500286271a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hotbarIndex: 5
 --- !u!1 &1155123966
 GameObject:
   m_ObjectHideFlags: 0
@@ -3776,15 +3818,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8091d81ced7bd2044af86ce2551ba679, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprites:
-  - {fileID: 2012339377}
-  - {fileID: 1063597938}
-  - {fileID: 1322775300}
-  - {fileID: 1993210974}
-  - {fileID: 756856853}
-  - {fileID: 1152822968}
+  hotbarSprites: []
   items: []
-  index: 0
+  hotbarIndex: 0
 --- !u!114 &1155123974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4035,6 +4071,7 @@ GameObject:
   - component: {fileID: 1322775299}
   - component: {fileID: 1322775301}
   - component: {fileID: 1322775300}
+  - component: {fileID: 1322775302}
   m_Layer: 5
   m_Name: GameObject (2)
   m_TagString: Untagged
@@ -4099,6 +4136,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1322775298}
   m_CullTransparentMesh: 1
+--- !u!114 &1322775302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1322775298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e92d54d4b5c0a6a52951c500286271a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hotbarIndex: 2
 --- !u!1 &1353162247
 GameObject:
   m_ObjectHideFlags: 0
@@ -5782,6 +5832,7 @@ GameObject:
   - component: {fileID: 1812782620}
   - component: {fileID: 1812782619}
   - component: {fileID: 1812782621}
+  - component: {fileID: 1812782622}
   m_Layer: 0
   m_Name: Fountain
   m_TagString: Untagged
@@ -5891,6 +5942,19 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1.01, y: 0.97}
   m_Direction: 1
+--- !u!114 &1812782622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1812782617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e92d54d4b5c0a6a52951c500286271a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hotbarIndex: 0
 --- !u!1 &1817774723
 GameObject:
   m_ObjectHideFlags: 0
@@ -6780,6 +6844,7 @@ GameObject:
   - component: {fileID: 1993210973}
   - component: {fileID: 1993210975}
   - component: {fileID: 1993210974}
+  - component: {fileID: 1993210976}
   m_Layer: 5
   m_Name: GameObject (3)
   m_TagString: Untagged
@@ -6844,6 +6909,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1993210972}
   m_CullTransparentMesh: 1
+--- !u!114 &1993210976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1993210972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e92d54d4b5c0a6a52951c500286271a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hotbarIndex: 3
 --- !u!1 &1996961386
 GameObject:
   m_ObjectHideFlags: 0
@@ -6939,6 +7017,7 @@ GameObject:
   - component: {fileID: 2012339376}
   - component: {fileID: 2012339378}
   - component: {fileID: 2012339377}
+  - component: {fileID: 2012339379}
   m_Layer: 5
   m_Name: GameObject
   m_TagString: Untagged
@@ -7003,6 +7082,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2012339375}
   m_CullTransparentMesh: 1
+--- !u!114 &2012339379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2012339375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e92d54d4b5c0a6a52951c500286271a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hotbarIndex: 0
 --- !u!1 &2068393748
 GameObject:
   m_ObjectHideFlags: 0
