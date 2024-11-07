@@ -9,7 +9,7 @@ public class Corpse : MonoBehaviour {
     public List<Sprite> sprites;
     public SpriteRenderer sprite;
     public List<Item> items;
-    public float detectionRange = 3f; // Distance at which player can see/interact with corpse
+    public float detectionRange = 3f; 
     private bool hasBeenSearched = false;
     private Transform playerTransform;
     
@@ -20,25 +20,22 @@ public class Corpse : MonoBehaviour {
     }
     
     void Update() {
-        // Check distance to player
-        float distanceToPlayer = Vector2.Distance(transform.position, playerTransform.position);
+        if (hasBeenSearched)
+            return;
         
-        // Show sprite if player is close enough and corpse hasn't been searched
-        if (!hasBeenSearched) {
-            sprite.enabled = distanceToPlayer <= detectionRange;
-        }
+        var distanceToPlayer = Vector2.Distance(transform.position, playerTransform.position);
+        sprite.enabled = distanceToPlayer <= detectionRange;
         
-        // Check for interaction
-        if (Input.GetKeyDown(KeyCode.E) && distanceToPlayer <= detectionRange && !hasBeenSearched) {
+
+        if (Input.GetKeyDown(KeyCode.E) && distanceToPlayer <= detectionRange) 
             Search();
-        }
     }
     
     private void Search() {
         if (items.Count > 0) {
             Item foundItem = items[Random.Range(0, items.Count)];
             
-            Debug.Log($"Found item: {foundItem.name}");
+            Inventory.Instance.AddItem(foundItem);
             GetComponent<SpriteRenderer>().sprite = sprites[Random.Range(0, sprites.Count)];
         }
         
