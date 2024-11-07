@@ -9,6 +9,10 @@ public class PlayerControl : Singleton<PlayerControl> {
 	
     private Vector2 savedDirection;
 
+    private void Start() {
+        rb = GetComponent<Rigidbody2D>();
+        rb.gravityScale = 0;
+    }
     private void FixedUpdate() {
         Vector2 currentDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         Vector2 movementVector = currentDirection.normalized;
