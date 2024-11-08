@@ -7,9 +7,11 @@ public class Item : ScriptableObject {
     public string abilityDescription;
     public float healthMultiplier = 1.0f;
     public float damageMultiplier = 1.0f;
-    public float damageReceivedMultiplier = 1.0f;
-    public float damageIgnoreChance = 0.0f;
-    public float doubleAttackChance = 0.0f;
-    public float blockIgnoreChance = 0.0f;
-    public float attackThroughDamageMultiplier = 0.0f;
+    public float speedMultiplier = 1.0f;
+    public float staminaRecovery = 1.0f;
+    public float fireRate = 1.0f;
+    public float bossHealthMultiplier = 1.0f;
+    public float bossDamageMultiplier = 1.0f;
+    public float bossSpeedMultiplier = 1.0f;
+    public float bossAttackRate = 1.0f;
 }
