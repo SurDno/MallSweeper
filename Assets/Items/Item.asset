@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Image: {fileID: 21300000, guid: 0ff2d22c83b5dc54386c69e6aa27324d, type: 3}
   Name: Intestines
+  abilityDescription: +5% damage resistance

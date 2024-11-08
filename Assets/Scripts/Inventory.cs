@@ -4,45 +4,48 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class Inventory : Singleton<Inventory>
-{
+public class Inventory : Singleton<Inventory> {
     public List<Image> hotbarSprites;
     public List<Item> items;
     public int hotbarIndex;
+    public bool allOrgansCollected;
     
-    private Item selectedItem;
-    
-    public void AddItem(Item item)
-    {
-        if (hotbarIndex >= hotbarSprites.Count)
+    public void AddItem(Item item) {
+        if (items.Count == 6)
             return;
         
+        if (hotbarIndex >= hotbarSprites.Count)
+            return;
+
         items.Add(item);
         hotbarSprites[hotbarIndex].sprite = item.Image;
         hotbarSprites[hotbarIndex].enabled = true;
         hotbarIndex++;
+
+        if (hotbarIndex > 3)
+            LightsOutManager.Instance.TurnLightsOff();
+        
+        var organsLeft = 6 - items.Count;
+        GoalManager.Instance.SetNewGoal($"Find {organsLeft} more organs to perform the ritual.");
+
+        if (items.Count == 6) {
+            allOrgansCollected = true;
+            GoalManager.Instance.SetNewGoal($"Find the pentagram to perform the ritual.");
+        }
     }
-    
-    public void SelectItem(int index)
-    {
+
+    public void ClickOnItem(int index) {
         if (index < 0 || index >= items.Count)
             return;
-        
-        selectedItem = items[index];
-        Debug.Log($"Selected item: {selectedItem.name}");
-        
-        // You can now use the selected item in a different script
-        UseSelectedItem();
-    }
-    
-    private void UseSelectedItem()
-    {
-        // Add your logic to use the selected item here
-        // For example, you could call a method in another script
-    }
-    
-    public void DeselectItem()
-    {
-        selectedItem = null;
+
+        var selectedItem = items[index];
+        items.RemoveAt(index);
+        for (int i = 0; i < hotbarSprites.Count; i++) {
+            hotbarSprites[i].sprite = items.Count > i ? items[i].Image : null;
+            hotbarSprites[i].enabled = items.Count > i;
+        }
+        PentagramManager.Instance.PlaceOrgan(selectedItem);
+
+        hotbarIndex--;
     }
 }

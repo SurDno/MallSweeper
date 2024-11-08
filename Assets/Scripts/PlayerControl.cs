@@ -14,7 +14,13 @@ public class PlayerControl : Singleton<PlayerControl> {
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 0;
     }
+
     private void FixedUpdate() {
+        if (PentagramManager.organs.Count == 5) {
+            rb.velocity = Vector2.zero;
+            return;
+        }
+
         Vector2 currentDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         Vector2 movementVector = currentDirection.normalized;
 

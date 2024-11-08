@@ -37,6 +37,7 @@ public class Corpse : MonoBehaviour {
             
             Inventory.Instance.AddItem(foundItem);
             GetComponent<SpriteRenderer>().sprite = sprites[Random.Range(0, sprites.Count)];
+            PentagramManager.Instance.OrganCollected();
         }
         
         hasBeenSearched = true;
