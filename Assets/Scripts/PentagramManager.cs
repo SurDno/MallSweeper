@@ -13,14 +13,14 @@ public class PentagramManager : Singleton<PentagramManager> {
 	public bool canPlaceOrgans;
 	public List<SpriteRenderer> organPositions;
 	private int index;
-	public static List<Item> organs;
+	public static List<Item> organs = new List<Item>();
 	private static readonly int GlowAmount = Shader.PropertyToID("_GlowAmount");
 	public Material pentagramMat;
 	public Light2D pentagramLight;
 	public GameObject mole;
 	public Sprite uiAfterRitual;
 	public Image bottombar;
-	
+
 	public void Start() {
 		organs = new List<Item>();
 	}
@@ -81,6 +81,5 @@ public class PentagramManager : Singleton<PentagramManager> {
 
 	public void OnDisable() {
 		pentagramMat.SetFloat(GlowAmount, 0);
-		
 	}
 }

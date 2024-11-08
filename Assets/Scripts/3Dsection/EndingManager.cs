@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EndingManager : MonoBehaviour {
+public class EndingManager : Singleton<EndingManager> {
     public List<Image> endingImages;
-    
-    private void Start() => ShowEnding();
     
     public void ShowEnding() {
         StartCoroutine(EndingCoroutine());

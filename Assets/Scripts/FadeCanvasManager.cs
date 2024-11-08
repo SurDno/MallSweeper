@@ -17,8 +17,9 @@ public class FadeCanvasManager : Singleton<FadeCanvasManager> {
 			yield return new WaitForEndOfFrame();
 		}
 
-		yield return new WaitForSeconds(3f);
+		yield return new WaitForSeconds(2f);
 		SceneManager.LoadScene("3DSection");
+		yield return new WaitForSeconds(1f);
 		
 		while (a > 0) {
 			a -= Time.deltaTime;

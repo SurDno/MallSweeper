@@ -16,7 +16,7 @@ public class PlayerControl : Singleton<PlayerControl> {
     }
 
     private void FixedUpdate() {
-        if (PentagramManager.organs.Count == 5) {
+        if (PentagramManager.organs != null && PentagramManager.organs.Count == 5) {
             rb.velocity = Vector2.zero;
             return;
         }
