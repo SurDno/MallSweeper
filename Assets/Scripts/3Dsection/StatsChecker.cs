@@ -15,14 +15,12 @@ public class StatsChecker : Singleton<StatsChecker> {
     void Start() {
         finalHealthMultiplier = finalDamageMultiplier = finalSpeedMultiplier =
             finalFireRate = finalBossHealthMultiplier =
-                finalBossDamageMultiplier = finalBossSpeedMultiplier = finalBossAttackRate = 1;
+                finalBossDamageMultiplier = finalBossSpeedMultiplier = finalStaminaRecovery = finalBossAttackRate = 1;
         var organs = PentagramManager.organs;
         foreach (var organ in organs) {
             finalHealthMultiplier *= organ.healthMultiplier;
             finalDamageMultiplier *= organ.damageMultiplier;
-            var v = finalSpeedMultiplier;
             finalSpeedMultiplier *= organ.speedMultiplier;
-            Debug.Log($"Before: {v}, multiplier: {organ.speedMultiplier}, final: {finalSpeedMultiplier}");
             finalStaminaRecovery *= organ.staminaRecovery;
             finalFireRate *= organ.fireRate;
             finalBossHealthMultiplier *= organ.bossHealthMultiplier;
