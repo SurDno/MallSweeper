@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4392718ce72e40a4abeb91d8c90bb2c6, type: 3}
-  m_Name: Heart
+  m_Name: Bladder
   m_EditorClassIdentifier: 
-  Image: {fileID: 21300000, guid: 025d9ad0dd828ac4fa8f0273f7a9e3ce, type: 3}
-  Name: Heart
-  abilityDescription: +30% health
-  healthMultiplier: 1.3
+  Image: {fileID: 21300000, guid: 7f32953938574134b90ac42743f612c2, type: 3}
+  Name: Bladder
+  abilityDescription: +50% FireRate and +20% ENEMY Speed
+  healthMultiplier: 1
   damageMultiplier: 1
   speedMultiplier: 1
   staminaRecovery: 1
-  fireRate: 1
+  fireRate: 1.5
   bossHealthMultiplier: 1
   bossDamageMultiplier: 1
-  bossSpeedMultiplier: 1
+  bossSpeedMultiplier: 1.2
   bossAttackRate: 1
