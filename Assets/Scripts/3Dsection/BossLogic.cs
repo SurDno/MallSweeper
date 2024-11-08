@@ -16,7 +16,7 @@ public class BossLogic : MonoBehaviour {
     public float movementSpeed;
 
     public Rigidbody rb;
-    public Animation anim;
+    public Animator anim;
     public Transform playerTransform;
     public float bossHealth;
     public Image bossHealthBar;
@@ -27,10 +27,13 @@ public class BossLogic : MonoBehaviour {
         movementSpeed *= StatsChecker.Instance.finalBossSpeedMultiplier;
         
         rb = GetComponent<Rigidbody>();
-        anim = GetComponent<Animation>();
+        anim = GetComponent<Animator>();
         playerTransform = FirstPersonController.Instance.transform;
     }
     void Update() {
+        if (bossHealth <= 0)
+            return;
+        
         var player = FirstPersonController.Instance.gameObject;
         
         transform.LookAt(player.transform);
@@ -55,14 +58,25 @@ public class BossLogic : MonoBehaviour {
     }
 
     public IEnumerator Kick() {
+        if (bossHealth <= 0)
+            yield break;
+        
         var bossDamage = 15f * StatsChecker.Instance.finalBossDamageMultiplier;
         FirstPersonController.Instance.DealDamage(bossDamage);
+        anim.SetBool("Punch" + (UnityEngine.Random.Range(1, 5)).ToString(), true);
         canKick = false;
         yield return new WaitForSeconds(3f * StatsChecker.Instance.finalBossAttackRate);
         canKick = true;
+        anim.SetBool("Punch1", false);
+        anim.SetBool("Punch2", false);
+        anim.SetBool("Punch3", false);
+        anim.SetBool("Punch4", false);
     }
 
     public void OnTriggerEnter(Collider other) {
+        if (bossHealth <= 0)
+            return;
+        
         if (other.CompareTag("Respawn")) {
             Destroy(other.gameObject);
             var damage = 1 * StatsChecker.Instance.finalDamageMultiplier;
@@ -76,6 +90,7 @@ public class BossLogic : MonoBehaviour {
 
         if (bossHealth <= 0) {
             EndingManager.Instance.ShowEnding();
+            anim.SetBool("Death", true);
             Destroy(this.gameObject);
         }
     }

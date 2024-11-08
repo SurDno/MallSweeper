@@ -20,7 +20,8 @@ public class PentagramManager : Singleton<PentagramManager> {
 	public GameObject mole;
 	public Sprite uiAfterRitual;
 	public Image bottombar;
-
+	public bool updateText = true;
+	
 	public void Start() {
 		organs = new List<Item>();
 	}
@@ -39,10 +40,13 @@ public class PentagramManager : Singleton<PentagramManager> {
 		bool originalValue = canPlaceOrgans;
 		canPlaceOrgans = (distanceToPlayer <= detectionRange) && Inventory.Instance.allOrgansCollected;
 		organsGlow.SetFloat(UseOutline, canPlaceOrgans ? 1 : 0);
+		if (!updateText)
+			return;
+		
 		if (canPlaceOrgans) {
 			if (index < 5) {
 				var organsLeftToPlace = 5 - index;
-				GoalManager.Instance.SetNewGoal($"Choose {organsLeftToPlace} more organs for the ritual.");
+				GoalManager.Instance.SetNewGoal($"Choose {organsLeftToPlace} more organs ritual.");
 			}
 		} else if (originalValue && !canPlaceOrgans) { 
 			if (index < 5) {
@@ -60,10 +64,17 @@ public class PentagramManager : Singleton<PentagramManager> {
 		index++;
 		pentagramMat.SetFloat(GlowAmount, Mathf.Pow(index / 5f, 5f));
 		pentagramLight.intensity = Mathf.Pow(index / 5f, 5f) * 3;
-
+		StartCoroutine(ShowEffect(organ));
 		if (index == 5) {
 			SummonCreature();
 		}
+	}
+
+	public IEnumerator ShowEffect(Item organ) {
+		updateText = false;
+		GoalManager.Instance.SetNewGoal($"{organ.Name}: {organ.abilityDescription}");
+		yield return new WaitForSeconds(2f);
+		updateText = true;
 	}
 
 	private void SummonCreature() {

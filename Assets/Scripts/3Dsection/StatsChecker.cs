@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class StatsChecker : Singleton<StatsChecker> {
     public float finalHealthMultiplier,
@@ -12,6 +13,9 @@ public class StatsChecker : Singleton<StatsChecker> {
         finalBossDamageMultiplier,
         finalBossSpeedMultiplier,
         finalBossAttackRate;
+
+    public List<Image> organImages;
+    
     void Start() {
         finalHealthMultiplier = finalDamageMultiplier = finalSpeedMultiplier =
             finalFireRate = finalBossHealthMultiplier =
@@ -27,6 +31,10 @@ public class StatsChecker : Singleton<StatsChecker> {
             finalBossDamageMultiplier *= organ.bossDamageMultiplier;
             finalBossSpeedMultiplier *= organ.bossSpeedMultiplier;
             finalBossAttackRate *= organ.bossAttackRate;
+        }
+
+        for (int i = 0; i < organImages.Count; i++) {
+            organImages[i].sprite = organs[i].Image;
         }
     }
     
