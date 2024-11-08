@@ -30,6 +30,7 @@ public class EndingManager : Singleton<EndingManager> {
                 endingImage.color = color;
             yield return new WaitForEndOfFrame();
         }
-        
+
+        Application.Quit();
     }
 }
