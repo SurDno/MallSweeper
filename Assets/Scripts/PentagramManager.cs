@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.UI;
 
 public class PentagramManager : Singleton<PentagramManager> {
 	private static readonly int UseOutline = Shader.PropertyToID("_UseOutline");
@@ -17,6 +18,8 @@ public class PentagramManager : Singleton<PentagramManager> {
 	public Material pentagramMat;
 	public Light2D pentagramLight;
 	public GameObject mole;
+	public Sprite uiAfterRitual;
+	public Image bottombar;
 	
 	public void Start() {
 		organs = new List<Item>();
@@ -65,6 +68,7 @@ public class PentagramManager : Singleton<PentagramManager> {
 
 	private void SummonCreature() {
 		GoalManager.Instance.SetNewGoal($"HE IS COMING.");
+		bottombar.sprite = uiAfterRitual;
 		StartCoroutine(MoleCoroutine());
 	}
 
